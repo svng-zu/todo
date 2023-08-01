@@ -16,7 +16,7 @@ class App extends React.Component {
   componentDidMount(){
 
     call("/todo","GET",null)
-    .then((response)=> this.setState({items:response.list}))
+    .then((response)=> this.setState({items:response.ans}))
   }
   //데이터 추가를 위한 함수
   //Item 1개를 받아서 items에 추가하는 함수
@@ -44,7 +44,7 @@ class App extends React.Component {
     //데이터의 모임을 만들어주는 함수
     //데이터 변환에 활용
     //데이터 개수에 따라 다르게 반응하도록 작성
-    var todoItems = this.state.item.length > 0 &&(
+    var todoItems = this.state.items.length > 0 &&(
       <Paper style = {{margin:16}}>
         <List>
           {this.state.items.map((item,idx)=>(
